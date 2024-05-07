@@ -39,7 +39,7 @@ if (empty($key)) {
 	echo "The key is empty.\r\n";
 	die(1);
 }
-if (trim(cert_get_subject($certificate, false)) != "CN=".$hostname.",") {
+if (trim(cert_get_subject($certificate, false)) != "CN=".$hostname."") {
 	echo "The certificate subject does not match the hostname $hostname.\r\n".cert_get_subject($certificate, false)."\r\n";
 	die(1);
 }
