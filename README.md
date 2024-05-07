@@ -19,9 +19,7 @@ scp opnsense-import-certificate.php certs/yourhost.domain.tld/privkey.pem certs/
 ## References
   - Create Custom Actions in OPNSense: https://forum.opnsense.org/index.php?topic=2263.0
   - Some additional Notes: https://github.com/ftrojahn/opnsense-import-certificate/pull/1
-  - Import Web GUI TLS Certificates automatically: https://github.com/ftrojahn/opnsense-import-certificate
   - Debugging Actions Issues: https://forum.opnsense.org/index.php?topic=21707.0
-
 
 ## Custom Actions
 ### Introduction
@@ -68,7 +66,7 @@ message: Automatically import updated Web GUI Certificates
 description: Automatically import updated Web GUI Certificates
 ```
 
-**IMPORTANT**: I'm NOT sure that the TAG name must be "[restart]". I tried with "[reconfigure]" and I was still getting an Error.
+**IMPORTANT**: I'm NOT sure that the TAG name must be `[restart]`. I tried with `[reconfigure]` and I was still getting an Error.
 
 ## Create Custom Action
 ### Procedure (Generic)
@@ -100,14 +98,14 @@ Setup a CRON Job in OPNSense Web GUI.
 7. Click: Apply
 8. Click: Apply (AGAIN) !
 9. Monitor the Logs in System -> Log Files. **Be sure to use the Multiselect and select ALL types of Messages**
-10. Verify if the Custom Action returns `OK` (`Exit Code 0`, `returned OK`) or an ERROR (e.g. `Exit Code 1`, `... returned Error (1)` and `returned exit status 1`)
+10. Verify if the Custom Action works correctly (`Exit Code 0`, `returned OK`) or if there are some Errors (e.g. `Exit Code 1`, `... returned Error (1)` and `returned exit status 1`)
 
 **NOTE**: I'm NOT sure if it's really needed to click "Apply" twice. I prefer to do so, in case the first time didn't really trigger.
 
 # Refreshing a Scheduled Task in OPNSense Web UI if the Custom Action File was changed
 **IMPORTANT**: if you changed the Custom Action in **ANY** way:
 - Filename was changed (e.g. `/usr/local/opnsense/service/conf/actions.d/actions_name1.conf` was moved/renamed to `/usr/local/opnsense/service/conf/actions.d/actions_name2.conf`)
-- Tag Name was changed (`tag1` -> `tag2`)
+- Tag Name was changed (e.g. `tag1` -> `tag2`)
 - Command to be Executed was changed
 - Arguments were changed
 - Description was changed
@@ -140,7 +138,7 @@ In order to workaround this issue some additionnal steps (TEMPORARILY change the
 11. Click Apply
 12. Click Apply (AGAIN) !
 13. Monitor the Logs in System -> Log Files. **Be sure to use the Multiselect and select ALL types of Messages**
-14. Verify if the Custom Action returns `OK` (`Exit Code 0`, `returned OK`) or an ERROR (e.g. `Exit Code 1`, `... returned Error (1)` and `returned exit status 1`)
+14. Verify if the Custom Action works correctly (`Exit Code 0`, `returned OK`) or if there are some Errors (e.g. `Exit Code 1`, `... returned Error (1)` and `returned exit status 1`)
 
 **NOTE**: I'm NOT sure if it's really needed to click "Apply" twice. I prefer to do so, in case the first time didn't really trigger.
 
